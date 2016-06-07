@@ -1,4 +1,4 @@
-FROM       cisco/tomcat:7.0.55
+FROM       cisco/tomcat:7
 
 ADD init /init
 

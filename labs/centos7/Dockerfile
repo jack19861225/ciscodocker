@@ -7,6 +7,14 @@ ENV TERM xterm
 ADD aliyun-mirror.repo /etc/yum.repos.d/CentOS-Base.repo
 ADD aliyun-epel.repo /etc/yum.repos.d/epel.repo
 
+RUN  export http_proxy=http://proxy.esl.cisco.com:80/ &&\
+export https_proxy=http://proxy.esl.cisco.com:80/ &&\
+export ftp_proxy=http://proxy.esl.cisco.com:80/ &&\
+export no_proxy=.cisco.com &&\
+export HTTP_PROXY=http://proxy.esl.cisco.com:80/ &&\
+export HTTPS_PROXY=http://proxy.esl.cisco.com:80/ &&\
+export FTP_PROXY=http://proxy.esl.cisco.com:80/ 
+
 RUN yum install -y curl wget tar bzip2 unzip vim-enhanced passwd sudo yum-utils hostname net-tools rsync man && \
     yum install -y gcc gcc-c++ git make automake cmake patch logrotate python-devel libpng-devel libjpeg-devel && \
     yum install -y --enablerepo=epel pwgen python-pip && \
